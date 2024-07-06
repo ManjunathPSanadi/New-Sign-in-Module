@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Sign-In</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function handleCredentialResponse(response) {
+      console.log("Encoded JWT ID token: " + response.credential);
+      // Redirect to success page
+      window.location.href = "success.html";
+    }
+
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: '585277304863-7qk9mslrc81624res4cgejl878lvmln8.apps.googleusercontent.com',
+        callback: handleCredentialResponse,
+        auto_select: false,
+        login_uri: 'https://manjunathpsanadi.github.io/your-repository-name/signup.html'
+      });
+      google.accounts.id.prompt(); // Display the One Tap dialog
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up with Google</h1>
+    <div class="contact">Contact: manjunathps440@gmail.com</div>
+    <div class="date">Date: July 3, 2024</div>
+  </div>
+</body>
+</html>
